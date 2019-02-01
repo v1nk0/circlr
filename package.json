@@ -7,7 +7,7 @@
     "rotation",
     "image"
   ],
-  "repository": "andrepolischuk/circlr",
+  "repository": "v1nk0/circlr",
   "dependencies": {
     "eventwheel": "^0.3.0",
     "component-emitter": "^1.2.0"
