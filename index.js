@@ -102,6 +102,15 @@ Rotation.prototype.show = function (n) {
   if (n < 0) n = this._cycle ? n + len : 0;
   if (n > len - 1) n = this._cycle ? n - len : len - 1;
   children[this.current].style.display = 'none';
+
+  if( n > len ) {
+    n = len;
+  }
+
+  if( n < 1 ) {
+    n = 1;
+  }
+
   children[n].style.display = 'block';
   if (n !== this.current) this.emit('show', n, len);
   this.current = n;
@@ -144,7 +153,7 @@ Rotation.prototype.onTouchMove = function (event) {
   var offset = touch - this.touch;
   offset = this._reverse ? -offset : offset;
   offset = Math.floor(offset / max * len);
-  this.show(this.currentTouched + offset);
+  this.show( parseInt( this.currentTouched ) + parseInt( offset ) );
 };
 
 Rotation.prototype.onTouchEnd = function (event) {
